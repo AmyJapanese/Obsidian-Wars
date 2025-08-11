@@ -1,9 +1,9 @@
 {
   "name": "Obsidian Wars",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "minAppVersion": "1.0.0",
   "author": "AmyJapanese",
-  "authorUrl": "https://github.com/AmyJapanese", 
-  "description": "A Star Wars inspired theme with Jedi/Sith color modes, lightsaber dividers, and starfield background.",
+  "authorUrl": "https://github.com/AmyJapanese",
+  "description": "An unofficial, fan-made Star Wars™–inspired theme for Obsidian. Light mode channels the Jedi (blue/green), dark mode embraces the Sith (red). Features lightsaber-style headings, glowing dividers, and a subtle starfield background.",
   "isDesktopOnly": false
 }
