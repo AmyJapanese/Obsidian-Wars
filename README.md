@@ -42,6 +42,11 @@ To disable animations, enable “Reduce Motion” in your OS accessibility setti
 This theme is released under the [MIT License](LICENSE).  
 Feel free to modify and share, but please credit **AmyJapanese** as the original creator.
 
+> **Disclaimer:**  
+> This is an unofficial, fan-made work.  
+> Star Wars™ and related properties are trademarks of Lucasfilm Ltd.  
+> This theme is not affiliated with, endorsed by, or sponsored by Lucasfilm Ltd. or The Walt Disney Company.
+
 ---
 
 *May the Force™ be with your notes.*
