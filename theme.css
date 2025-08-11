@@ -1,0 +1,299 @@
+/* ========== Obsidian Wars (skeleton) ========== */
+/* 変数（色＆強さ） */
+
+
+:root {
+  --ow-glow: 0.75;               /* 発光強度（0~1） */
+  --ow-star-opacity: 0.15;       /* 星空の濃さ */
+  --ow-star-tint: 0, 150, 255;   /* 青めの星色 (R,G,B) */
+  --ow-saber-thickness: 3px;     /* ライトセーバー線の太さ */
+  --ow-saber-core: #ffffff;      /* ブレード中心の白 */
+}
+
+/* ライト（ジェダイ）：見出し＝青/緑 */
+.theme-light {
+  --ow-h1: #2ea8ff;  /* 青（オビ＝ワン） */
+  --ow-h2: #41ff7c;  /* 緑（ヨーダ） */
+  --ow-h3: #5ec7ff;
+  --ow-h4: #6dff9a;
+  --ow-h5: #9bd7ff;
+  --ow-h6: #aaffc5;
+}
+
+/* ダーク（シス）：見出し＝赤系 */
+.theme-dark {
+  --ow-h1: #ff2e2e;  /* クリムゾン（ベイダー） */
+  --ow-h2: #ff5252;
+  --ow-h3: #ff6e6e;
+  --ow-h4: #ff8a8a;
+  --ow-h5: #ffa3a3;
+  --ow-h6: #ffbcbc;
+}
+
+/* ===== 背景：ぼんやり星空 ===== */
+body {
+  /* 基本の背景はテーマ任せ＋星層を重ねる */
+  background:
+    radial-gradient(circle at 10% 20%, rgba(var(--ow-star-tint), var(--ow-star-opacity)) 0 1px, transparent 2px) 0 0 / 180px 180px,
+    radial-gradient(circle at 70% 80%, rgba(var(--ow-star-tint), calc(var(--ow-star-opacity)*0.8)) 0 1px, transparent 2px) 0 0 / 220px 220px,
+    radial-gradient(circle at 40% 60%, rgba(255,255,255, calc(var(--ow-star-opacity)*0.9)) 0 1px, transparent 2px) 0 0 / 260px 260px;
+}
+
+/* 動きをほんの少し（苦手な人はOS設定で止める） */
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    animation: ow-parallax 40s linear infinite;
+  }
+  @keyframes ow-parallax {
+    0%   { background-position: 0 0, 0 0, 0 0; }
+    100% { background-position: 200px 60px, -160px 100px, 120px -80px; }
+  }
+}
+
+/* ===== 見出し：ジェダイ/シス配色＋淡い発光 ===== */
+/* プレビュー（読み） */
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6 {
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.markdown-preview-view h1 { color: var(--ow-h1); text-shadow: 0 0 6px color-mix(in oklab, var(--ow-h1) 60%, #fff 40%); }
+.markdown-preview-view h2 { color: var(--ow-h2); text-shadow: 0 0 6px color-mix(in oklab, var(--ow-h2) 60%, #fff 40%); }
+.markdown-preview-view h3 { color: var(--ow-h3); text-shadow: 0 0 5px color-mix(in oklab, var(--ow-h3) 60%, #fff 40%); }
+.markdown-preview-view h4 { color: var(--ow-h4); text-shadow: 0 0 4px color-mix(in oklab, var(--ow-h4) 60%, #fff 40%); }
+.markdown-preview-view h5 { color: var(--ow-h5); text-shadow: 0 0 3px color-mix(in oklab, var(--ow-h5) 60%, #fff 40%); }
+.markdown-preview-view h6 { color: var(--ow-h6); text-shadow: 0 0 2px color-mix(in oklab, var(--ow-h6) 60%, #fff 40%); }
+
+/* エディタ（Live Preview / CM6） */
+.markdown-source-view.mod-cm6 .cm-content h1,
+.markdown-source-view.mod-cm6 .cm-content h2,
+.markdown-source-view.mod-cm6 .cm-content h3,
+.markdown-source-view.mod-cm6 .cm-content h4,
+.markdown-source-view.mod-cm6 .cm-content h5,
+.markdown-source-view.mod-cm6 .cm-content h6 {
+  /* CodeMirrorの見出しトークン色 */
+  color: inherit;
+}
+.cm-header-1 { color: var(--ow-h1) !important; text-shadow: 0 0 6px color-mix(in oklab, var(--ow-h1) 60%, #fff 40%); }
+.cm-header-2 { color: var(--ow-h2) !important; text-shadow: 0 0 6px color-mix(in oklab, var(--ow-h2) 60%, #fff 40%); }
+.cm-header-3 { color: var(--ow-h3) !important; text-shadow: 0 0 5px color-mix(in oklab, var(--ow-h3) 60%, #fff 40%); }
+.cm-header-4 { color: var(--ow-h4) !important; text-shadow: 0 0 4px color-mix(in oklab, var(--ow-h4) 60%, #fff 40%); }
+.cm-header-5 { color: var(--ow-h5) !important; text-shadow: 0 0 3px color-mix(in oklab, var(--ow-h5) 60%, #fff 40%); }
+.cm-header-6 { color: var(--ow-h6) !important; text-shadow: 0 0 2px color-mix(in oklab, var(--ow-h6) 60%, #fff 40%); }
+
+/* ===== 区切り線（hr）：ライトセーバー風 ===== */
+.markdown-preview-view hr,
+.markdown-source-view.mod-cm6 hr {
+  border: none;
+  height: var(--ow-saber-thickness);
+  background:
+    /* コア（白） */
+    linear-gradient(90deg, transparent, var(--ow-saber-core), transparent) center/100% 100% no-repeat,
+    /* グロー（見出し1色を基調にするけど少し混ぜる） */
+    radial-gradient(closest-side, rgba(255,255,255,0.6), transparent 60%) center/100% 140% no-repeat;
+  position: relative;
+  filter: drop-shadow(0 0 8px color-mix(in oklab, var(--ow-h1) 70%, #fff 30%))
+          drop-shadow(0 0 14px color-mix(in oklab, var(--ow-h1) 50%, #fff 50%));
+  border-radius: 999px;
+  opacity: 0.95;
+}
+
+/* セーバーの“揺らぎ”をほんの少し */
+@media (prefers-reduced-motion: no-preference) {
+  .markdown-preview-view hr,
+  .markdown-source-view.mod-cm6 hr {
+    animation: ow-hum 2.2s ease-in-out infinite alternate;
+  }
+  @keyframes ow-hum {
+    from { filter: drop-shadow(0 0 7px color-mix(in oklab, var(--ow-h1) 70%, #fff 30%)); }
+    to   { filter: drop-shadow(0 0 12px color-mix(in oklab, var(--ow-h1) 70%, #fff 30%)); }
+  }
+}
+
+/* ===== 見出し下に“水平セーバー”を出す（任意：h1だけ） ===== */
+.markdown-preview-view h1::after {
+  content: "";
+  display: block;
+  height: var(--ow-saber-thickness);
+  margin-top: 6px;
+  background: linear-gradient(90deg, transparent, var(--ow-saber-core), transparent);
+  filter: drop-shadow(0 0 10px var(--ow-h1)) drop-shadow(0 0 16px var(--ow-h1));
+  border-radius: 999px;
+  opacity: 0.95;
+}
+
+/* ===== 読書用タイポ補助（日本語Noto Serif推奨） ===== */
+body, .markdown-preview-view, .cm-s-obsidian {
+  font-family: "Noto Serif JP", "Noto Serif CJK JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  line-height: 1.75;
+}
+
+/* ===== 互換性：古いブラウザで color-mix が無い場合の弱発光 ===== */
+@supports not (color: color-mix(in oklab, red 50%, white 50%)) {
+  .markdown-preview-view h1, .cm-header-1,
+  .markdown-preview-view h2, .cm-header-2,
+  .markdown-preview-view h3, .cm-header-3,
+  .markdown-preview-view h4, .cm-header-4,
+  .markdown-preview-view h5, .cm-header-5,
+  .markdown-preview-view h6, .cm-header-6 {
+    text-shadow: 0 0 6px rgba(255,255,255, var(--ow-glow));
+  }
+}
+
+/* ===== Obsidian Wars: サイドバー & 境界 自動切替 ===== */
+/* ─ 共有変数（太さなど） ─ */
+/* 共有（太さそのまま） */
+:root { --ow-border-w: 3px; }
+
+/* ☆ ライト用の明るい土台と控えめグローに上書き */
+.theme-light {
+  /* アクセント（ジェダイ配色はそのまま使う想定） */
+  --ow-accent-1: #2ea8ff; /* 青 */
+  --ow-accent-2: #41ff7c; /* 緑 */
+
+  /* ←ここがポイント：明るい背景に差し替え */
+  --ow-ribbon-bg:  #ffffff;   /* サイドバーの下地（明） */
+  --ow-ribbon-tint:#f4f9ff;   /* ごく薄い青みで爽やかに */
+  --ow-border-glow: rgba(46,168,255,.35); /* 光りは弱く */
+}
+
+/* サイドバー本体（ライト用） */
+.theme-light .workspace-ribbon {
+  background: linear-gradient(180deg, var(--ow-ribbon-tint), var(--ow-ribbon-bg));
+  border-right: var(--ow-border-w) solid var(--ow-accent-1);
+  box-shadow:
+    inset -1px 0 6px color-mix(in oklab, var(--ow-accent-1) 25%, #000 75%),
+    0 0 6px var(--ow-border-glow);
+}
+
+/* ファイルツリー背景も明るく統一（濃すぎ回避） */
+.theme-light .nav-files-container,
+.theme-light .workspace-tabs ~ .nav-files-container {
+  background: linear-gradient(180deg, var(--ow-ribbon-tint), var(--ow-ribbon-bg));
+}
+
+/* ライトの境界線（セーバー）は控えめに発光 */
+.theme-light .workspace-split.mod-horizontal > .workspace-leaf-resize-handle,
+.theme-light .workspace-split.mod-vertical   > .workspace-leaf-resize-handle {
+  background: linear-gradient(180deg, var(--ow-accent-1), var(--ow-accent-2));
+  box-shadow:
+    0 0 6px rgba(46,168,255,.45),
+    0 0 8px rgba(65,255,124,.35);
+  opacity: .85;
+}
+
+/* ライトのスクロールバー（見え方を淡めに） */
+.theme-light .nav-files-container::-webkit-scrollbar-thumb {
+  background-color: color-mix(in oklab, var(--ow-accent-1) 40%, #777 60%);
+}
+.theme-light .nav-files-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ─ ダーク（シス：赤） ─ */
+.theme-dark {
+  --ow-accent-1: #ff2e2e; /* 赤 */
+  --ow-accent-2: #ff5252; /* ちょい明るい赤 */
+  --ow-border-glow: rgba(255,46,46,.9);
+  --ow-ribbon-tint: #1a0b0b;           /* ほんのり赤みの暗色 */
+}
+
+/* ─ サイドバー（リボン）背景＆縁取り ─ */
+.workspace-ribbon {
+  background:
+    linear-gradient(180deg, var(--ow-ribbon-tint), var(--ow-ribbon-bg));
+  border-right: var(--ow-border-w) solid var(--ow-accent-1);
+  box-shadow:
+    inset -2px 0 10px color-mix(in oklab, var(--ow-accent-1) 35%, #000 65%),
+    var(--ow-shadow-soft) var(--ow-border-glow);
+}
+
+/* ファイルツリー側の背景も統一 */
+.nav-files-container,
+.workspace-tabs ~ .nav-files-container {
+  background: linear-gradient(180deg, var(--ow-ribbon-tint), var(--ow-ribbon-bg));
+}
+
+/* スクロールバー（WebKit系） */
+.nav-files-container::-webkit-scrollbar-thumb {
+  background-color: color-mix(in oklab, var(--ow-accent-1) 70%, #000 30%);
+}
+.nav-files-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ─ エディタ／サイドバーの境界（ドラッグハンドル）を発光ライン化 ─ */
+.workspace-split.mod-horizontal > .workspace-leaf-resize-handle,
+.workspace-split.mod-vertical   > .workspace-leaf-resize-handle {
+  background:
+    linear-gradient(180deg, var(--ow-accent-1), var(--ow-accent-2));
+  box-shadow:
+    var(--ow-shadow-soft) var(--ow-border-glow),
+    var(--ow-shadow-strong) color-mix(in oklab, var(--ow-accent-2) 60%, #fff 40%);
+  opacity: .95;
+}
+
+/* ─ ペインの外枠もさりげなく光らせる（控えめ） ─ */
+.workspace-leaf.mod-active {
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--ow-accent-1) 35%, #fff 65%);
+}
+
+/* ─ 低モーション環境向けに発光だけ残してアニメなし ─ */
+@media (prefers-reduced-motion: reduce) {
+  .workspace-split .workspace-leaf-resize-handle { animation: none; }
+}
+
+/* ===== Obsidian Wars: アクセントカラー＆バックリンク自動切替 ===== */
+
+/* ライトモード（ジェダイ） */
+.theme-light {
+  --link-color: var(--ow-accent-1); /* 内部リンク色 */
+  --link-color-hover: var(--ow-accent-2);
+  --interactive-accent: var(--ow-accent-1); /* ボタンや選択範囲の色 */
+  --interactive-accent-hover: var(--ow-accent-2);
+  --text-accent: var(--ow-accent-1);
+}
+
+/* ダークモード（シス） */
+.theme-dark {
+  --link-color: var(--ow-accent-1); 
+  --link-color-hover: var(--ow-accent-2);
+  --interactive-accent: var(--ow-accent-1);
+  --interactive-accent-hover: var(--ow-accent-2);
+  --text-accent: var(--ow-accent-1);
+}
+
+/* バックリンク（プレビュー表示） */
+.markdown-preview-view .internal-link {
+  color: var(--link-color);
+  text-decoration-color: var(--link-color);
+}
+.markdown-preview-view .internal-link:hover {
+  color: var(--link-color-hover);
+  text-decoration-color: var(--link-color-hover);
+}
+
+/* エディタ（Live Preview）の内部リンク */
+.cm-s-obsidian span.cm-hmd-internal-link,
+.cm-s-obsidian span.cm-link {
+  color: var(--link-color);
+}
+.cm-s-obsidian span.cm-hmd-internal-link:hover,
+.cm-s-obsidian span.cm-link:hover {
+  color: var(--link-color-hover);
+}
+
+/* 選択範囲・アクティブUI */
+button,
+input[type="checkbox"]:checked {
+  accent-color: var(--interactive-accent);
+}
+.workspace-tab-header.is-active,
+.view-header {
+  border-bottom: 2px solid var(--interactive-accent);
+}
