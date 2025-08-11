@@ -1,5 +1,7 @@
 # Obsidian Wars
 
+![Obsidian Wars Theme Preview](assets/Obsidian-Wars.png)
+
 **Obsidian Wars** is a **fan-made** Star Wars™–inspired custom theme for [Obsidian](https://obsidian.md/).  
 Light mode channels the **Jedi Order** with blue and green accents, while Dark mode embraces the **Sith** with crimson highlights.  
 Headings glow like lightsabers, horizontal rules shimmer like energy blades, and a subtle starfield sets the scene.
