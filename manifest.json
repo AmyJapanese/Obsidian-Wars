@@ -1,9 +1,9 @@
 {
   "name": "Obsidian Wars",
+  "version": "0.1.0",
+  "minAppVersion": "1.0.0",
   "author": "AmyJapanese",
-  "repo": "AmyJapanese/Obsidian-Wars",
-  "branch": "main",
-  "screenshot": "assets/Obsidian-Wars.png",
-  "manifest": "manifest.json",
-  "theme": "theme.css"
+  "authorUrl": "https://github.com/AmyJapanese", 
+  "description": "A Star Wars inspired theme with Jedi/Sith color modes, lightsaber dividers, and starfield background.",
+  "isDesktopOnly": false
 }
