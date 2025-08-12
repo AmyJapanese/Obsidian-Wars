@@ -1,6 +1,6 @@
 # Obsidian Wars
 
-![Obsidian Wars Theme Preview](assets/Obsidian-Wars.png)
+![Obsidian Wars Theme Preview](assets/Vault-Wars.png)
 # Vault Wars
 
 Vault Wars is a fan-made Star Wars™–inspired custom theme for Obsidian.  
