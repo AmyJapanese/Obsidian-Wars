@@ -5,5 +5,6 @@
   "author": "AmyJapanese",
   "authorUrl": "https://github.com/AmyJapanese",
   "description": "An unofficial, fan-made Star Wars™–inspired theme for Obsidian. Light mode channels the Jedi (blue/green), dark mode embraces the Sith (red). Features lightsaber-style headings, glowing dividers, and a subtle starfield background.",
-  "isDesktopOnly": false
+  "isDesktopOnly": false,
+ "screenshot": "screenshot/vault-wars.png"
 }
