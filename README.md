@@ -1,4 +1,4 @@
-# Obsidian Wars
+# Vault Wars
 
 ![Obsidian Wars Theme Preview](assets/Vault-Wars.png)
 # Vault Wars
