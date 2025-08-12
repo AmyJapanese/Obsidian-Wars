@@ -46,6 +46,10 @@ You can tweak key variables in `theme.css`:
 This theme is released under the **MIT License**.  
 Feel free to modify and share, but please credit **AmyJapanese** as the original creator.
 
+**Disclaimer:** If you customize or redistribute this theme and it causes any legal issues (such as using copyrighted material without permission),  
+I, **AmyJapanese**, take no responsibility for any consequences.
+
+
 ---
 
 *May the Force™ be with your notes.*
