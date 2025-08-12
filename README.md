@@ -20,6 +20,8 @@ Headings glow like lightsabers, horizontal rules shimmer like energy blades, and
 - **Sidebar & panel borders** that glow in theme colors  
 - Accent colors for **links, backlinks, and interactive UI** based on mode  
 - Fully responsive and works on desktop & mobile
+- **Ultra-lightweight build** – only **12KB total**, split evenly between the Jedi and the Sith (~6KB each).  
+  *Even a podracer couldn’t load faster.*
 
 ## 📂 Installation
 
